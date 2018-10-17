@@ -4,9 +4,7 @@
 # Address blocks in CIDR notation
 127.0.0.0/8
 ::1/128
-
 193.191.177.6
 2001:6A8:2880:A021::6
-
 #my personal address
 193.191.187.3
