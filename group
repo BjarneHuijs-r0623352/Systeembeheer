@@ -53,3 +53,4 @@ messagebus:x:113:
 _cvsadmin:x:114:
 check:x:1000:
 incron:x:115:
+ntp:x:116:

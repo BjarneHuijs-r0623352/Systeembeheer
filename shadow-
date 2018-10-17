@@ -26,3 +26,5 @@ systemd-bus-proxy:*:17512:0:99999:7:::
 messagebus:*:17512:0:99999:7:::
 gitlog:*:17793:0:99999:7:::
 gitdaemon:*:17793:0:99999:7:::
+check:$6$sksWdH3H$vJQ6kK4FVjyTAhI9CAQ9RVfZRSoTaBYIn7BFLfabrUo8yv8YGNscQ2RwFCqXCVVeuU5V8cyz5FgkogeEzn8c41:17799:0:99999:7:::
+ntp:*:17821:0:99999:7:::
