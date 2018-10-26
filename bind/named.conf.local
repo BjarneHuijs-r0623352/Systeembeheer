@@ -11,7 +11,7 @@ zone "bjarne-huijs.sb.uclllabs.be" {
 		file "/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be";
 };
 
-zone "0.168.192.in-addr.arpa" {
+zone "193.191.in-addr.arpa" {
 		type master;
-		file "/etc/bind/zones/master/db.192.168.0";
+		file "/etc/bind/zones/master/db.193.191";
 };	
