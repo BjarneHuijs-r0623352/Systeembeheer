@@ -3,7 +3,7 @@
 ;
 $TTL    3h
 @       IN      SOA     ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-                          4        ; Serial
+                          5        ; Serial
                           3h       ; Refresh after 3 hours
                           1h       ; Retry after 1 hour
                           1w       ; Expire after 1 week
@@ -14,7 +14,7 @@ $TTL    3h
 	IN	NS	ns.bjarne-huijs.sb.uclllabs.be.
 	IN      NS      ns1.uclllabs.be.
 	IN      NS      ns2.uclllabs.be.
-	IN	NS	ns.lenni-wijnants.sb.uclllabs.be.
+;	IN	NS	ns.lenni-wijnants.sb.uclllabs.be.
 
 ;name server -  A records
 ns					IN	A	193.191.177.134
@@ -28,4 +28,8 @@ bjarne-huijs.sb.uclllabs.be.		IN      A       193.191.177.134
 
 ;server -  A records
 test.bjarne-huijs.sb.uclllabs.be.	IN	A	193.191.177.254
-mail	IN	MX	99.88.77.66
+
+bjarne-huijs.sb.uclllabs.be	IN	MX	10	mail
+mail	IN	A	99.88.77.66
+test	IN	A	12.34.56.78
+wwwwww	IN	CNAME	www.bjarne-huijs.sb.uclllabs.be

@@ -40,11 +40,13 @@ def add_to_zone(line, zone):
 	with open(zone_file_location, "a") as file:
 		print("Writing: " + line + " to zone " + zone)
 		file.write(line)
+		file.write("\n")
 
 
 if __name__ == '__main__':
 	args = sys.argv
 	# Remove command name
+	print(args[0])
 	args.pop(0)
 	# Get record type
 	type = get_type_from_args(args, True)
@@ -56,10 +58,11 @@ if __name__ == '__main__':
 			print_error("CNAME type requires 2 parameters: name + address (ex: wwwwwww www.you.sb.uclllabs.be)")
 		name = args[0]
 		address = args[1]
-		zone = remove_first_del(value, '.')
+		zone = remove_first_del(address, '.')
 		add_to_zone('\t'.join([name, 'IN', type, address]), zone)
 	elif type == 'A':
 		if len(args) != 3:
+			print(args)
 			print_error("A type requires 3 parameters: alias name + ip + zone (ex: test 12.34.56.78 foobar.uclllabs.be)")
 		alias_name = args[0]
 		ip = args[1]
@@ -67,8 +70,10 @@ if __name__ == '__main__':
 		add_to_zone('\t'.join([alias_name, 'IN', type, ip]), zone)
 	elif type == 'MX':
 		if len(args) != 3:
+			print(args)
 			print_error("MX type requires 3 parameters: name + ip + zone (ex: mail 99.88.77.66 you.sb.uclllabs.be)")
 		name = args[0]
 		ip = args[1]
 		zone = args[2]
-add_to_zone('\t'.join([name, 'IN', type, ip]), zone)
+		add_to_zone('\t'.join([zone, 'IN', type,'10', name]), zone)
+		add_to_zone('\t'.join([name, 'IN', 'A', ip]), zone)
