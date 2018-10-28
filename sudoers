@@ -20,6 +20,7 @@ Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 root	ALL=(ALL:ALL) ALL
 check	ALL=(root) NOPASSWD: /usr/lib/nagios/plugins/check_apt
 check	ALL=(root) NOPASSWD: /usr/sbin/arp
+check   ALL=(root) NOPASSWD: /etc/scripts/dns_add_record.sh
 # Allow members of group sudo to execute any command
 %sudo	ALL=(ALL:ALL) ALL
 
