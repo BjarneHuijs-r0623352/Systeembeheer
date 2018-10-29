@@ -28,8 +28,4 @@ bjarne-huijs.sb.uclllabs.be.		IN      A       193.191.177.134
 
 ;server -  A records
 test.bjarne-huijs.sb.uclllabs.be.	IN	A	193.191.177.254
-
-bjarne-huijs.sb.uclllabs.be	IN	MX	10	mail
-mail	IN	A	99.88.77.66
-test	IN	A	12.34.56.78
-wwwwww	IN	CNAME	www.bjarne-huijs.sb.uclllabs.be
+foobar	IN	NS	ns

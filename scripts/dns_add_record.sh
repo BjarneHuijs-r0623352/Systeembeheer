@@ -46,7 +46,6 @@ def add_to_zone(line, zone):
 if __name__ == '__main__':
 	args = sys.argv
 	# Remove command name
-	print(args[0])
 	args.pop(0)
 	# Get record type
 	type = get_type_from_args(args, True)
