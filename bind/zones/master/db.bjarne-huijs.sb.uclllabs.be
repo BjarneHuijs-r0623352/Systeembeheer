@@ -19,6 +19,8 @@ $TTL    3h
 ;name server -  A records
 ns					IN	A	193.191.177.134
 www					IN	A	193.191.177.134
+www1					IN	A	193.191.177.134
+www2					IN	A	193.191.177.134
 bjarne-huijs.sb.uclllabs.be.		IN      A       193.191.177.134
 ;ns1.uclllabs.be.			IN      A       193.191.176.254
 ;ns1.uclllabs.be.			IN	AAAA	2001:6A8:2880:A020::FE
