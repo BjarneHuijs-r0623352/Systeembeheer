@@ -22,6 +22,7 @@ check	ALL=(root) NOPASSWD: /usr/lib/nagios/plugins/check_apt
 check	ALL=(root) NOPASSWD: /usr/sbin/arp
 check   ALL=(root) NOPASSWD: /etc/scripts/dns_add_record.sh
 check	ALL=(root) NOPASSWD: /etc/scripts/dns_add_zone.sh
+check	ALL=(root) NOPASSWD: /etc/scripts/http_add_vhost.sh
 # Allow members of group sudo to execute any command
 %sudo	ALL=(ALL:ALL) ALL
 

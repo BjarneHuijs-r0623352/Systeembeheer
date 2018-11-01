@@ -3,8 +3,8 @@
 ;
 $TTL    3h
 @       IN      SOA     ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-                          5        ; Serial
-                          3h       ; Refresh after 3 hours
+                          6        ; Serial
+                          1h       ; Refresh after 3 hours
                           1h       ; Retry after 1 hour
                           1w       ; Expire after 1 week
                           1h )     ; Negative caching TTL of 1 day
@@ -31,3 +31,4 @@ bjarne-huijs.sb.uclllabs.be.		IN      A       193.191.177.134
 ;server -  A records
 test.bjarne-huijs.sb.uclllabs.be.	IN	A	193.191.177.254
 foobar	IN	NS	ns
+vhosttry	IN	A	193.191.177.134
