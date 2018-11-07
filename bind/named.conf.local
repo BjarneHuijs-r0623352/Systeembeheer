@@ -16,7 +16,6 @@ zone "193.191.in-addr.arpa" {
 		file "/etc/bind/zones/master/db.193.191";
 };	
 
-
 zone "foobar.bjarne-huijs.sb.uclllabs.be" {
   type master;
   file "/etc/bind/zones/master/db.foobar";

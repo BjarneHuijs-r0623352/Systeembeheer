@@ -1,78 +1,107 @@
-#!/usr/bin/env python3
-import sys
-import os.path
+#!/bin/bash
 
-allowed_types = ["A", "CNAME", "MX"]
+# config
+ZONE_DIRECTORY=/etc/bind/zones/master
+RECORD_TYPE=A
+PARAMS=()
 
-def print_error(message):
-	print(message)
-	sys.exit(1)
+while (( "$#" )); do
+  case "$1" in
+    -t)
+      RECORD_TYPE=$2
+      shift 2
+      ;;
+    *)
+      PARAMS+=($1)
+      shift
+      ;;
+  esac
+done
 
-def get_type_from_args(args, delete = False):
-	if('-t' in args):
-		index = args.index('-t')
-		type = args[index + 1]
-		if type not in allowed_types:
-			print_error(type + "is an invalid type for a dns record, the following types are valid (A is default type):" + ','.join(allowed_types))
-		if delete:
-			for _ in range(2):
-				args.pop(index)
-	else:
-		type = "A"
-	return type
+case $RECORD_TYPE in
+     A)
+          DOMAIN=${PARAMS[0]}
+          IP=${PARAMS[1]}
+          ZONE=${PARAMS[2]}
+	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-def remove_first_del(string, delimiter):
-	string_list = string.split(delimiter)
-	string_list.pop(0)
-	result = delimiter.join(string_list)
-	return result
+	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+	  	# Add record info
+          	echo "$DOMAIN   IN  A       $IP" >> $ZONE_DIRECTORY/db.$ZONE
 
-def add_to_zone(line, zone):
-	if zone == "bjarne-huijs.sb.uclllabs.be":
-		zone_file_location = "/etc/bind/zones/master/db." + zone
-	else:
-		zone_file_location = "/etc/bind/zones/db." + zone
+          	# Increment serial
+          	LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE" | cut -d : -f 1)
+          	OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE | sed -r 's/\s+//g' | sed 's/;.*//')
+          	NEW_SERIAL=$(($OLD_SERIAL + 1))
+          	sed -i "${LINE}s/.*/           $NEW_SERIAL            ; Serial/" $ZONE_DIRECTORY/db.$ZONE
+	  else
+          	# Add record info
+          	echo "$DOMAIN   IN  A       $IP" >> $ZONE_DIRECTORY/db.$ZONE_NAME
 
-	exists = os.path.isfile(zone_file_location)
-	if not exists:
-		print_error("Zone: " + zone + " does not exist (looked for " + zone_file_location + ")")
+          	# Increment serial
+          	LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE_NAME" | cut -d : -f 1)
+          	OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE_NAME | sed -r 's/\s+//g' | sed 's/;.*//')
+          	NEW_SERIAL=$(($OLD_SERIAL + 1))
+          	sed -i "${LINE}s/.*/           $NEW_SERIAL		; Serial/" $ZONE_DIRECTORY/db.$ZONE_NAME
+	  fi
+	  ;;
+     CNAME)
+          DOMAIN=${PARAMS[0]}
+          ZONE=${PARAMS[1]}
+	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-	with open(zone_file_location, "a") as file:
-		print("Writing: " + line + " to zone " + zone)
-		file.write(line)
-		file.write("\n")
+	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+          	# Add record info
+          	echo $DOMAIN       IN CNAME      $ZONE. >> $ZONE_DIRECTORY/db.$ZONE
 
+          	# Increment serial
+          	LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE" | cut -d : -f 1)
+          	OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE | sed -r 's/\s+//g' | sed 's/;.*//')
+          	NEW_SERIAL=$(($OLD_SERIAL + 1))
+          	sed -i "${LINE}s/.*/           $NEW_SERIAL		; Serial/" $ZONE_DIRECTORY/db.$ZONE
+	  else
+	  	# Add record info
+                echo $DOMAIN       IN CNAME      $ZONE. >> $ZONE_DIRECTORY/db.$ZONE_NAME
 
-if __name__ == '__main__':
-	args = sys.argv
-	# Remove command name
-	args.pop(0)
-	# Get record type
-	type = get_type_from_args(args, True)
+                # Increment serial
+                LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE_NAME" | cut -d : -f 1)
+                OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE_NAME | sed -r 's/\s+//g' | sed 's/;.*//')
+                NEW_SERIAL=$(($OLD_SERIAL + 1))
+                sed -i "${LINE}s/.*/           $NEW_SERIAL              ; Serial/" $ZONE_DIRECTORY/db.$ZONE_NAME
+	  fi
+	  ;;
+     MX)
+          DOMAIN=${PARAMS[0]}
+          IP=${PARAMS[1]}
+          ZONE=${PARAMS[2]}
+	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-	#Check for correct amount of args
-	if type == 'CNAME':
-		if len(args) != 2:
-			print(args)
-			print_error("CNAME type requires 2 parameters: name + address (ex: wwwwwww www.you.sb.uclllabs.be)")
-		name = args[0]
-		address = args[1]
-		zone = remove_first_del(address, '.')
-		add_to_zone('\t'.join([name, 'IN', type, address]), zone)
-	elif type == 'A':
-		if len(args) != 3:
-			print(args)
-			print_error("A type requires 3 parameters: alias name + ip + zone (ex: test 12.34.56.78 foobar.uclllabs.be)")
-		alias_name = args[0]
-		ip = args[1]
-		zone = args[2]
-		add_to_zone('\t'.join([alias_name, 'IN', type, ip]), zone)
-	elif type == 'MX':
-		if len(args) != 3:
-			print(args)
-			print_error("MX type requires 3 parameters: name + ip + zone (ex: mail 99.88.77.66 you.sb.uclllabs.be)")
-		name = args[0]
-		ip = args[1]
-		zone = args[2]
-		add_to_zone('\t'.join([zone, 'IN', type,'10', name]), zone)
-		add_to_zone('\t'.join([name, 'IN', 'A', ip]), zone)
+	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+	  	# Add record info
+                echo IN  MX  10  $DOMAIN >> $ZONE_DIRECTORY/db.$ZONE
+                echo $DOMAIN   IN  A       $IP >> $ZONE_DIRECTORY/db.$ZONE
+
+                # Increment serial
+                LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE" | cut -d : -f 1)
+                OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE | sed -r 's/\s+//g' | sed 's/;.*//')
+                NEW_SERIAL=$(($OLD_SERIAL + 1))
+                sed -i "${LINE}s/.*/           $NEW_SERIAL              ; Serial/" $ZONE_DIRECTORY/db.$ZONE
+	  else
+          	# Add record info
+          	echo IN  MX  10  $DOMAIN >> $ZONE_DIRECTORY/db.$ZONE_NAME
+          	echo $DOMAIN   IN  A       $IP >> $ZONE_DIRECTORY/db.$ZONE_NAME
+
+          	# Increment serial
+          	LINE=$(grep -n '; Serial' "$ZONE_DIRECTORY/db.$ZONE_NAME" | cut -d : -f 1)
+          	OLD_SERIAL=$(sed "${LINE}q;d" $ZONE_DIRECTORY/db.$ZONE_NAME | sed -r 's/\s+//g' | sed 's/;.*//')
+          	NEW_SERIAL=$(($OLD_SERIAL + 1))
+          	sed -i "${LINE}s/.*/           $NEW_SERIAL		; Serial/" $ZONE_DIRECTORY/db.$ZONE_NAME
+	  fi
+	  ;;
+     *)
+          echo "Unknow record type."
+          exit 12;
+	  ;;
+esac
+
+systemctl reload bind9

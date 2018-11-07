@@ -38,7 +38,6 @@ if [ "$domain" == "bjarne-huijs.sb.uclllabs.be" ]; then
 		dns_add_record -t A $vhost 193.191.177.134 $domain
 		a2ensite $vhost.conf
 		systemctl reload apache2
-		systemctl restart bind9
 	else
 		echo "Vhost name not correctly formatted, please use only letters and numbers"
 	fi

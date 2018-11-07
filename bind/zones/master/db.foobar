@@ -3,11 +3,11 @@
 ;
 $TTL 3h
 @  IN  SOA  ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-  1 ;serial
-  3h ;refresh
-  1h ;retry
-  1w ;expire
-  5 ) ;neg cache TTL 5 minutes
+           3		; Serial
+  3h ; refresh
+  1h ; retry
+  1w ; expire
+  5 ) ; neg cache TTL 5 minutes
 ;
 
 ;subzone NS records:
@@ -15,3 +15,5 @@ $TTL 3h
 ;subzone records:
 @	IN	A	193.191.177.134
 ns	IN	A	193.191.177.134
+try   IN  A       12.34.56.78
+try   IN  A       12.34.56.78
