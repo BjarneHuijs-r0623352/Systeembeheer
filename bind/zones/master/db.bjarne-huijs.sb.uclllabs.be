@@ -3,7 +3,7 @@
 ;
 $TTL    3h
 @       IN      SOA     ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-           9            ; Serial
+           11            ; Serial
                           1h       ; Refresh after 3 hours
                           1h       ; Retry after 1 hour
                           1w       ; Expire after 1 week
@@ -34,3 +34,5 @@ vhosttry	IN	A	193.191.177.134
 foobar	IN	NS	ns
 try   IN  A       12.34.56.78
 hosttest   IN  A       193.191.177.134
+secure   IN  A       193.191.177.134
+supersecure   IN  A       193.191.177.134
