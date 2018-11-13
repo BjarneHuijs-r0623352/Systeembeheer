@@ -37,7 +37,7 @@ def create_zone(name):
 		file.write("\nzone \"" + name + ".bjarne-huijs.sb.uclllabs.be\" {\n")
 		file.write("  type master;\n")
 		file.write("  file \"" + path + "\";\n")
-		file.write("   allow-transfer {193.191.177.254;193.191.177.4;193.191.177.254;193.191.177.134; };\n") 
+		file.write("   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };\n") 
 		file.write("};\n")
 
 
