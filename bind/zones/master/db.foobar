@@ -3,7 +3,7 @@
 ;
 $TTL 3h
 @  IN  SOA  ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-           3		; Serial
+           4		; Serial
   3h ; refresh
   1h ; retry
   1w ; expire
@@ -17,3 +17,4 @@ $TTL 3h
 ns	IN	A	193.191.177.134
 try   IN  A       12.34.56.78
 try   IN  A       12.34.56.78
+recordtest   IN  A       12.34.56.78

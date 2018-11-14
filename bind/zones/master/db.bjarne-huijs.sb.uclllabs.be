@@ -22,11 +22,11 @@ www					IN	A	193.191.177.134
 www1					IN	A	193.191.177.134
 www2					IN	A	193.191.177.134
 bjarne-huijs.sb.uclllabs.be.		IN      A       193.191.177.134
-ns1.uclllabs.be.			IN      A       193.191.176.254
+;ns1.uclllabs.be.			IN      A       193.191.176.254
 ;ns1.uclllabs.be.			IN	AAAA	2001:6A8:2880:A020::FE
-ns2.uclllabs.be.			IN      A       193.191.177.4
+;ns2.uclllabs.be.			IN      A       193.191.177.4
 ;ns2.uclllabs.be.			IN	AAAA	2001:6A8:2880:A021::4
-ns.lenni-wijnants.sb.uclllabs.be.	IN	A	193.191.177.164
+;ns.lenni-wijnants.sb.uclllabs.be.	IN	A	193.191.177.164
 
 ;server -  A records
 test.bjarne-huijs.sb.uclllabs.be.	IN	A	193.191.177.254
