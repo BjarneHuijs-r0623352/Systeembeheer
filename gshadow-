@@ -54,3 +54,4 @@ _cvsadmin:!::
 check:!::
 incron:!::
 ntp:!::
+bind:!::
