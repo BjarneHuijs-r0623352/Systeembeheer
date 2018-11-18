@@ -99,7 +99,7 @@ case $RECORD_TYPE in
 	  fi
 	  ;;
      *)
-          echo "Unknow record type."
+          echo "Unknown record type."
           exit 12;
 	  ;;
 esac

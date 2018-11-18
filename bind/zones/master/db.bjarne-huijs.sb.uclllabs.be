@@ -3,7 +3,7 @@
 ;
 $TTL    3h
 @       IN      SOA     ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-           25           ; Serial
+           29              ; Serial
                           1h       ; Refresh after 3 hours
                           1h       ; Retry after 1 hour
                           1h       ; Expire after 1 week
@@ -38,3 +38,5 @@ secure   IN  A       193.191.177.134
 supersecure   IN  A       193.191.177.134
 bjarne-huijs.sb.uclllabs.be.	IN	CAA	0 issue "letsencrypt.org"
 bjarne-huijs.sb.uclllabs.be.	IN	CAA	0 iodef "mailto:admin@bjarne-huijs.sb.uclllabs.be"
+@ IN MX 10 mx
+mx IN A 193.191.177.134
