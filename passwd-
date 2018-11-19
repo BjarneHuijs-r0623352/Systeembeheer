@@ -31,4 +31,4 @@ ntp:x:110:116::/home/ntp:/bin/false
 bind:x:111:117::/var/cache/bind:/bin/false
 mysql:x:112:118:MySQL Server,,,:/nonexistent:/bin/false
 dovecot:x:113:119:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
-dovenull:x:114:120::/nonexistent:/bin/false
+dovenull:x:114:120:Dovecot login user,,,:/nonexistent:/bin/false
