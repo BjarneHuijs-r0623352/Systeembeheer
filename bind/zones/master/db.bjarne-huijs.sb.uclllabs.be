@@ -42,3 +42,4 @@ bjarne-huijs.sb.uclllabs.be.	IN	CAA	0 iodef "mailto:admin@bjarne-huijs.sb.ucllla
 mx IN A 193.191.177.134
 subzoneze4ohd	IN	NS	ns
 subzonemah5oh	IN	NS	ns
+subzonenom5ye	IN	NS	ns

@@ -1,0 +1,5 @@
+user = usermail
+password = mailpassword
+hosts = localhost
+dbname = servermail
+query = SELECT 1 FROM virtual_domains WHERE name='%s'

@@ -34,3 +34,9 @@ zone "subzonemah5oh.bjarne-huijs.sb.uclllabs.be" {
   file "/etc/bind/zones/master/db.subzonemah5oh";
    allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
 };
+
+zone "subzonenom5ye.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzonenom5ye";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
