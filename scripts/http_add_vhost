@@ -30,6 +30,7 @@ if [ "$domain" == "bjarne-huijs.sb.uclllabs.be" ]; then
   </head>
   <body>
     <h1>$vhost</h1>
+    <h1>welcome</h1>
     <p> This is the homepage of vhost $vhost</p>
   </body>
 </html>" >> /var/www/$vhost/public_html/index.html

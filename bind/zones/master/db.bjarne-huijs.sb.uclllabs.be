@@ -3,7 +3,7 @@
 ;
 $TTL    3h
 @       IN      SOA     ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
-           29              ; Serial
+           32            ; Serial
                           1h       ; Refresh after 3 hours
                           1h       ; Retry after 1 hour
                           1h       ; Expire after 1 week
@@ -43,3 +43,10 @@ mx IN A 193.191.177.134
 subzoneze4ohd	IN	NS	ns
 subzonemah5oh	IN	NS	ns
 subzonenom5ye	IN	NS	ns
+subzoneeangi6	IN	NS	ns
+subzonethi5ko	IN	NS	ns
+subzoneeemah2	IN	NS	ns
+subzonefah2zo	IN	NS	ns
+subzoneiew8au	IN	NS	ns
+testing   IN  A       193.191.177.134
+subzonephah8a	IN	NS	ns
