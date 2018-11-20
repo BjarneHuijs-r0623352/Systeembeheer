@@ -12,7 +12,7 @@ append_dot_mydomain = no
 readme_directory = no
 
 myhostname = mx.bjarne-huijs.sb.uclllabs.be
-#myorigin = /etc/mailname
+myorigin = /etc/mailname
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 mydestination = localhost
