@@ -29,8 +29,8 @@ if [ "$domain" == "bjarne-huijs.sb.uclllabs.be" ]; then
     <title>Home vhost $vhost</title>
   </head>
   <body>
-    <h1>welcome</h1>
-    <p>this is the default page of vhost $vhost</p>
+    <h1>$vhost</h1>
+    <p> This is the homepage of vhost $vhost</p>
   </body>
 </html>" >> /var/www/$vhost/public_html/index.html
 		#    Enable the vhost.
