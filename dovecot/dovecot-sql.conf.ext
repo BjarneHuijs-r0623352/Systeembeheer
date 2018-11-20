@@ -29,11 +29,7 @@
 # );
 
 # Database driver: mysql, pgsql, sqlite
-
-driver = mysql
-connect = host=localhost dbname=servermail user=usermail password=mailpassword
-default_pass_scheme = PLAIN
-password_query = SELECT email as user, password FROM virtual_users WHERE email='%u';
+#driver = 
 
 # Database connection string. This is driver-specific setting.
 #

@@ -40,8 +40,6 @@ nogroup:x:65534:
 crontab:x:101:
 ssl-cert:x:102:
 input:x:103:
-postfix:x:104:
-postdrop:x:105:
 netdev:x:106:
 ssh:x:107:
 systemd-journal:x:108:
@@ -56,5 +54,7 @@ incron:x:115:
 ntp:x:116:
 bind:x:117:
 mysql:x:118:
-dovecot:x:119:
-dovenull:x:120:
+vmail:x:1001:
+dovecot:x:104:
+dovenull:x:105:
+postfix:x:119:

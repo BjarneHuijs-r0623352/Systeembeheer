@@ -40,8 +40,6 @@ nogroup:*::
 crontab:!::
 ssl-cert:!::
 input:!::
-postfix:!::
-postdrop:!::
 netdev:!::
 ssh:!::
 systemd-journal:!::
@@ -56,5 +54,7 @@ incron:!::
 ntp:!::
 bind:!::
 mysql:!::
+vmail:!::
 dovecot:!::
 dovenull:!::
+postfix:!::
