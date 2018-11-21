@@ -1,5 +1,5 @@
 user = usermail
 password = mailpassword
-hosts = localhost
+hosts = 193.191.177.134
 dbname = servermail
 query = SELECT 1 FROM virtual_domains WHERE name='%s'
