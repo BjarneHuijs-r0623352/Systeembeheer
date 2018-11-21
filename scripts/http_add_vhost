@@ -4,8 +4,10 @@ vhost=$(echo $1 | cut -d'.' -f1)
 echo $vhost
 domain=$(echo $1 | cut -d'.' -f2-)
 echo $domain
+subdomain=$(dig +short -t ns $domain @1.1.1.1)
+echo$subdomain
 
-if [ "$domain" == "bjarne-huijs.sb.uclllabs.be" ]; then
+if [ "$subdomain" == "ns.bjarne-huijs.sb.uclllabs.be." ]; then
 	if ! [[ "$vhost" =~ [^a-zA-Z0-9]+ ]]; then
 		mkdir -p /var/www/$vhost/public_html
 		#    Configure vhost specific logging.
@@ -29,7 +31,7 @@ if [ "$domain" == "bjarne-huijs.sb.uclllabs.be" ]; then
     <title>Home vhost $vhost</title>
   </head>
   <body>
-    <h1>$vhost</h1>
+    <h1>$1</h1>
     <h1>welcome</h1>
     <p> This is the homepage of vhost $vhost</p>
   </body>

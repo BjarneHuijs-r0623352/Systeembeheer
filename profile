@@ -2,9 +2,9 @@
 # and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
 
 if [ "`id -u`" -eq 0 ]; then
-  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/etc/scripts"
 else
-  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+  PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/etc/scripts"
 fi
 export PATH
 

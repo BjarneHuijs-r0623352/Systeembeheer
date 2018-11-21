@@ -25,7 +25,7 @@ case $RECORD_TYPE in
           ZONE=${PARAMS[2]}
 	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+	  if [ $ZONE == "bjarne-huijs.sb.uclllabs.be" ]; then
 	  	# Add record info
           	echo "$DOMAIN   IN  A       $IP" >> $ZONE_DIRECTORY/db.$ZONE
 
@@ -50,7 +50,7 @@ case $RECORD_TYPE in
           ZONE=${PARAMS[1]}
 	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+	  if [ $ZONE == "bjarne-huijs.sb.uclllabs.be" ]; then
           	# Add record info
           	echo $DOMAIN       IN CNAME      $ZONE. >> $ZONE_DIRECTORY/db.$ZONE
 
@@ -76,7 +76,7 @@ case $RECORD_TYPE in
           ZONE=${PARAMS[2]}
 	  ZONE_NAME=$(echo $ZONE | awk '{sub(/\..*/,x)}1')
 
-	  if [ $ZONE = "bjarne-huijs.sb.uclllabs.be" ]; then
+	  if [ $ZONE == "bjarne-huijs.sb.uclllabs.be" ]; then
 	  	# Add record info
                 echo IN  MX  10  $DOMAIN >> $ZONE_DIRECTORY/db.$ZONE
                 echo $DOMAIN   IN  A       $IP >> $ZONE_DIRECTORY/db.$ZONE
