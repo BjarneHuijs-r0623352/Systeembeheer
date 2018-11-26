@@ -6,7 +6,7 @@ domain=$(echo $1 | cut -d'.' -f2-)
 echo $domain
 subdomain=$(dig +short -t ns $domain @1.1.1.1)
 echo$subdomain
-
+vhostsub=$(grep -v "${bjarne-huijs.sb.uclllabs.be}" $1)
 if [ "$subdomain" == "ns.bjarne-huijs.sb.uclllabs.be." ]; then
 	if ! [[ "$vhost" =~ [^a-zA-Z0-9]+ ]]; then
 		mkdir -p /var/www/$vhost/public_html
@@ -14,7 +14,7 @@ if [ "$subdomain" == "ns.bjarne-huijs.sb.uclllabs.be." ]; then
 		touch /etc/apache2/sites-available/$vhost.conf
 		echo "<VirtualHost *:80>
 	ServerAdmin admin@bjarne-huijs.sb.uclllabs.be
-	ServerName $vhost.bjarne-huijs.sb.uclllabs.be
+	ServerName $1
         DocumentRoot /var/www/$vhost/public_html
 
         ErrorLog /var/www/$vhost/apache.error.log
@@ -32,7 +32,7 @@ if [ "$subdomain" == "ns.bjarne-huijs.sb.uclllabs.be." ]; then
   </head>
   <body>
     <h1>welcome $vhost</h1>
-    <h1>welcome $1<h1>
+    <h1>welcome $1</h1>
     <p> This is the homepage of vhost $vhost</p>
   </body>
 </html>" >> /var/www/$vhost/public_html/index.html

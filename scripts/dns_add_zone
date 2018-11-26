@@ -2,6 +2,7 @@
 import sys
 import os.path
 import re
+import subprocess
 
 def print_error(message):
         print(message)
@@ -32,7 +33,7 @@ def create_zone(name):
 
 	with open("/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be", "a") as file:
 		file.write("\t".join([name, "IN", "NS", "ns"]) + "\n")
-
+		subprocess.run("dns_add_record -t A makingitwork 12.34.56.78 bjarne-huijs.sb.uclllabs.be")
 	with open("/etc/bind/named.conf.local", "a") as file:
 		file.write("\nzone \"" + name + ".bjarne-huijs.sb.uclllabs.be\" {\n")
 		file.write("  type master;\n")
