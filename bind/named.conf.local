@@ -76,3 +76,69 @@ zone "subzonephah8a.bjarne-huijs.sb.uclllabs.be" {
   file "/etc/bind/zones/master/db.subzonephah8a";
    allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
 };
+
+zone "subzoneeej8oh.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzoneeej8oh";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzoneoyu2oe.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzoneoyu2oe";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzonetae7ah.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzonetae7ah";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzonezoo7wu.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzonezoo7wu";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzoneaenu4k.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzoneaenu4k";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "zoneTest.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.zoneTest";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzoneeejie8.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzoneeejie8";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzonequeij5.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzonequeij5";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzoneieta3a.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzoneieta3a";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "subzonewue8da.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.subzonewue8da";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "gebuisd5.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.gebuisd5";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
