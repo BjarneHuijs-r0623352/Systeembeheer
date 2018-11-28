@@ -33,7 +33,18 @@ def create_zone(name):
 
 	with open("/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be", "a") as file:
 		file.write("\t".join([name, "IN", "NS", "ns"]) + "\n")
-		subprocess.run("dns_add_record -t A makingitwork 12.34.56.78 bjarne-huijs.sb.uclllabs.be")
+
+	with open("/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be", "r") as file:
+		i = 0
+		for line in file:
+			i+=1
+			if i == 6:
+				num = re.search("\d+", line).group(0)
+				print(num)
+				num = int(num)+1
+				print(num)
+				line = line.replace(line, "   " + str(num) + " ;serial")
+
 	with open("/etc/bind/named.conf.local", "a") as file:
 		file.write("\nzone \"" + name + ".bjarne-huijs.sb.uclllabs.be\" {\n")
 		file.write("  type master;\n")
