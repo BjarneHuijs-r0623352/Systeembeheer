@@ -1,0 +1,18 @@
+;
+; BIND data file for db.subzonevej7ai
+;
+$TTL 3h
+@  IN  SOA  ns.bjarne-huijs.sb.uclllabs.be. admin.bjarne-huijs.sb.uclllabs.be. (
+           2		; Serial
+  3h ; refresh
+  1h ; retry
+  1w ; expire
+  5 ) ; neg cache TTL 5 minutes
+;
+
+;subzone NS records:
+@	IN	NS	ns.bjarne-huijs.sb.uclllabs.be.
+;subzone records:
+@	IN	A	193.191.177.134
+ns	IN	A	193.191.177.134
+ies0du   IN  A       193.191.177.134
