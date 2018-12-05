@@ -35,15 +35,26 @@ def create_zone(name):
 		file.write("\t".join([name, "IN", "NS", "ns"]) + "\n")
 
 	with open("/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be", "r") as file:
-		i = 0
-		for line in file:
-			i+=1
-			if i == 6:
-				num = re.search("\d+", line).group(0)
-				print(num)
-				num = int(num)+1
-				print(num)
-				line = line.replace(line, "   " + str(num) + " ;serial")
+		content=file.read()
+		line = re.search("\d+\s+;\sSerial", content).group(0)
+		num = re.search("\d+", line).group(0)
+		print(num)
+		newnum = int(num)+1
+		print(newnum)
+		newline=line.replace(line, "    " + str(newnum) + " ; Serial")
+		content=content.replace(line, newline)
+#		i = 0
+#		for line in file:
+#			i+=1
+#			if i == 6:
+#				num = re.search("\d+", line).group(0)
+#				print(num)
+#				num = int(num)+1
+#				print(num)
+#				line = line.replace(line, "   " + str(num) + " ; Serial")
+
+	with open("/etc/bind/zones/master/db.bjarne-huijs.sb.uclllabs.be", "w") as file:
+		file.write(content)
 
 	with open("/etc/bind/named.conf.local", "a") as file:
 		file.write("\nzone \"" + name + ".bjarne-huijs.sb.uclllabs.be\" {\n")

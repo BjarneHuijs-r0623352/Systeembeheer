@@ -150,3 +150,39 @@ zone "serialuptest.bjarne-huijs.sb.uclllabs.be" {
   file "/etc/bind/zones/master/db.serialuptest";
    allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
 };
+
+zone "serialuptest2.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest2";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "serialuptest3.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest3";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "serialuptest4.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest4";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "serialuptest5.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest5";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "serialuptest7.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest7";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
+
+zone "serialuptest8.bjarne-huijs.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/zones/master/db.serialuptest8";
+   allow-transfer {193.191.176.254;193.191.177.4;193.191.177.254;193.191.177.134; };
+};
